@@ -36,7 +36,7 @@ public class Display {
 		StringBuilder sb;
 		
 		cols = new ArrayList<>();
-		while(sc.hasNext()) {
+		while(sc.hasNext() && count<100) {
 			count++;
 			s = sc.next();
 			int apos=0;
@@ -64,8 +64,10 @@ public class Display {
 		
 		//userInterface
 		Scanner user = new Scanner(System.in);
+		
 		String[] range = null;
 		Integer n;
+		String  str;
 		while (true) {
 			long startTime = System.currentTimeMillis();
 		System.out.println("Please input any option from below:");
@@ -73,7 +75,8 @@ public class Display {
 		System.out.println("2.List the horror movies");
 		System.out.println("3.List the movies from India");
 		System.out.println("4.Exit");
-		int input = Integer.parseInt(user.next());
+		str = user.next();
+		int input = Integer.parseInt(str);
 		if(input!=4) {
 				System.out.println("Enter the number of records you want to see");
 				n = Integer.parseInt(user.next());
@@ -81,8 +84,11 @@ public class Display {
 					System.out.println("Want to see records by the time range? Y/N");
 					String opt = user.next();
 					if(opt.equals("Y")) {
+						range = null;
 						System.out.println("Enter the time range separated by space");
-						range = user.next().split(" ");
+						str = user.next();
+						System.out.println(str);
+						range = str.split(",");
 				}
 				
 				
